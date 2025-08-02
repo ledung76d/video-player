@@ -1,10 +1,24 @@
 {
   "videos": [
+    "292827_small - Copy.mp4",
+    "demo1.mp4",
     "sample1.mp4",
     "sample2.mp4",
-    "sample3.mp4",
-    "sample4.mp4",
-    "demo1.mp4",
-    "demo2.mp4"
-  ]
-} 
+    "sample3.mp4"
+  ],
+  "metadata": {
+    "totalVideos": 5,
+    "lastUpdated": "2025-08-02T03:51:26.387Z",
+    "version": "1.0",
+    "description": "Danh sách video có sẵn trong Multi Video Player",
+    "supportedFormats": [
+      ".mp4",
+      ".avi",
+      ".mov",
+      ".mkv",
+      ".wmv",
+      ".flv",
+      ".webm"
+    ]
+  }
+}

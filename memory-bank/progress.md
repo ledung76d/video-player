@@ -76,6 +76,13 @@
   - Keyboard shortcut: Ctrl+N (toggle navbar)
   - Lưu trạng thái vào localStorage
   - Animation mượt mà khi ẩn/hiện
+- ✅ **TÍNH NĂNG MỚI**: Auto Video Scanner
+  - Script Node.js tự động scan folder video/
+  - Cập nhật file videos.json với danh sách video mới
+  - Hỗ trợ nhiều định dạng video (.mp4, .avi, .mov, .mkv, .wmv, .flv, .webm)
+  - PowerShell script và Batch file để dễ dàng chạy
+  - Hiển thị thống kê và thông tin cập nhật
+  - Error handling và validation
 
 ### Cấu Trúc File Đã Tạo:
 ```
@@ -92,7 +99,11 @@ multi-video-player/
 │   ├── controls.js ✅
 │   └── main.js ✅
 ├── video/
-│   └── README.txt ✅
+│   ├── videos.json ✅
+│   ├── index.js ✅ (Script tự động cập nhật)
+│   └── README.md ✅
+├── update-videos.ps1 ✅ (PowerShell script)
+├── update-videos.bat ✅ (Batch file)
 └── README.md ✅
 ```
 
