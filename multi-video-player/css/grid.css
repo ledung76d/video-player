@@ -1,0 +1,329 @@
+/* Video Grid Layout */
+.video-grid {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+    height: 100%;
+    min-height: 400px;
+}
+
+/* Video Grid khi navbar ẩn */
+.video-section.fullscreen .video-grid,
+.main-content.navbar-hidden .video-section .video-grid {
+    padding: 0 !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    margin: 0 !important;
+}
+
+/* Grid Layouts */
+.video-grid.layout-1x1 {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+.video-grid.layout-2x2 {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.video-grid.layout-3x3 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.video-grid.layout-4x4 {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+/* Video Container */
+.video-container {
+    position: relative;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Video Container khi fullscreen */
+.video-section.fullscreen .video-container,
+.main-content.navbar-hidden .video-container {
+    min-height: 150px;
+}
+
+.video-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.video-container.focused {
+    grid-column: span 2;
+    grid-row: span 2;
+    z-index: 10;
+}
+
+/* Video Element */
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #000;
+}
+
+/* Video Controls Overlay */
+.video-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    padding: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.video-container:hover .video-controls {
+    opacity: 1;
+}
+
+.video-controls.show {
+    opacity: 1;
+}
+
+.control-buttons {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.control-btn {
+    background: rgba(255,255,255,0.9);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: all 0.2s ease;
+}
+
+.control-btn:hover {
+    background: white;
+    transform: scale(1.1);
+}
+
+/* Video Header */
+.video-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(rgba(0,0,0,0.8), transparent);
+    padding: 0.5rem 1rem;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.video-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+}
+
+.video-actions {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.action-btn {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    color: white;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background 0.2s;
+}
+
+.action-btn:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+/* Empty State */
+.video-grid.empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.empty-message {
+    max-width: 400px;
+}
+
+.empty-message h3 {
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+.empty-message p {
+    color: #777;
+    line-height: 1.6;
+}
+
+/* Drag and Drop Styles */
+.video-container.dragging {
+    opacity: 0.5;
+    transform: rotate(5deg);
+}
+
+.video-container.drag-over {
+    border: 2px dashed #667eea;
+    background: rgba(102, 126, 234, 0.1);
+}
+
+/* Resize Handles */
+.resize-handle {
+    position: absolute;
+    background: rgba(255,255,255,0.8);
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.resize-handle.top-left {
+    top: 5px;
+    left: 5px;
+    width: 10px;
+    height: 10px;
+    cursor: nw-resize;
+}
+
+.resize-handle.top-right {
+    top: 5px;
+    right: 5px;
+    width: 10px;
+    height: 10px;
+    cursor: ne-resize;
+}
+
+.resize-handle.bottom-left {
+    bottom: 5px;
+    left: 5px;
+    width: 10px;
+    height: 10px;
+    cursor: sw-resize;
+}
+
+.resize-handle.bottom-right {
+    bottom: 5px;
+    right: 5px;
+    width: 10px;
+    height: 10px;
+    cursor: se-resize;
+}
+
+/* Responsive Grid */
+@media (max-width: 1200px) {
+    .video-grid.layout-4x4 {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .video-grid.layout-3x3,
+    .video-grid.layout-4x4 {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .video-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+    }
+    
+    .video-container.focused {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+}
+
+/* Loading State for Video */
+.video-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.video-loading::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ddd;
+    border-top: 2px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 0.5rem;
+}
+
+/* Error State for Video */
+.video-error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #dc3545;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Volume Slider */
+.volume-slider {
+    width: 80px;
+    height: 4px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 2px;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+} 
