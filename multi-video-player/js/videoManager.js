@@ -269,11 +269,17 @@ class VideoManager {
 
         // Show/hide controls on hover
         Utils.DOM.addEvent(container, 'mouseenter', () => {
-            controls.classList.add('show');
+            const controls = container.querySelector('.video-controls');
+            if (controls) {
+                controls.classList.add('show');
+            }
         });
 
         Utils.DOM.addEvent(container, 'mouseleave', () => {
-            controls.classList.remove('show');
+            const controls = container.querySelector('.video-controls');
+            if (controls) {
+                controls.classList.remove('show');
+            }
         });
     }
 
@@ -350,6 +356,8 @@ class VideoManager {
             title.textContent = `${title.textContent} (${duration})`;
         }
     }
+
+
 
     /**
      * Update grid layout based on current layout setting

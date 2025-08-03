@@ -37,6 +37,8 @@
     grid-template-rows: repeat(4, 1fr);
 }
 
+
+
 /* Video Container */
 .video-container {
     position: relative;
@@ -326,4 +328,8 @@
     border-radius: 50%;
     cursor: pointer;
     border: none;
-} 
+}
+
+
+
+ 
